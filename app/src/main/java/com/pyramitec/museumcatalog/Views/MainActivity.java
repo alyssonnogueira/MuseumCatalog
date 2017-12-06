@@ -1,5 +1,6 @@
-package com.pyramitec.museumcatalog;
+package com.pyramitec.museumcatalog.Views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,21 +10,36 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.pyramitec.museumcatalog.Controllers.MuseumController;
+import com.pyramitec.museumcatalog.Models.Museum;
+import com.pyramitec.museumcatalog.MuseumCatalog;
+import com.pyramitec.museumcatalog.R;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NAME = "museumId";
+    private Museum mMuseum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        final long museumId = intent.getLongExtra(EXTRA_NAME, 0);
+        MuseumController museumController = new MuseumController();
+        mMuseum = museumController.getMuseumById(museumId);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(mMuseum.getName());
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
+                intent.putExtra(EXTRA_NAME, mMuseum.getIdMuseum());
+                startActivity(intent);
             }
         });
     }
