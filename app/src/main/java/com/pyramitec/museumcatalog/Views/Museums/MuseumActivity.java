@@ -1,6 +1,6 @@
 package com.pyramitec.museumcatalog.Views.Museums;
 
-import android.content.Context;
+import   android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,8 +20,8 @@ public class MuseumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_museum);
 
-        //mToolbar = (Toolbar) findViewById(R.id.appbar);
-        //mToolbar.setTitle("Escolha o Museu");
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_museum);
+        mToolbar.setTitle("Escolha o Museu");
         //setSupportActionBar(mToolbar);
 
         // FRAGMENT
