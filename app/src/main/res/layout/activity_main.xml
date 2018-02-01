@@ -28,12 +28,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
+                
+                <ImageButton
+                    android:id="@+id/infoButton"
+                    app:srcCompat="@android:drawable/ic_dialog_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary"/>
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include
+        android:id="@+id/textbox"
+        layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

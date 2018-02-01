@@ -1,5 +1,6 @@
 package com.pyramitec.museumcatalog.Views;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.pyramitec.museumcatalog.Controllers.MuseumController;
 import com.pyramitec.museumcatalog.Models.Museum;
@@ -42,14 +45,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageButton info = (ImageButton) findViewById(R.id.infoButton);
+        info.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Context context = getApplicationContext();
+                CharSequence text = "Museu do doce!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
