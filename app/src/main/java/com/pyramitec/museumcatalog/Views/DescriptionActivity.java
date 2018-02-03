@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pyramitec.museumcatalog.Controllers.MuseumController;
@@ -18,6 +20,8 @@ public class DescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
 
+        getSupportActionBar().hide(); // tirar toolbar
+
         Intent intent = getIntent();
         final long museumId = intent.getLongExtra("museumId", 0);
         final int masterpieceId = intent.getIntExtra("masterpieceId", 0);
@@ -30,5 +34,13 @@ public class DescriptionActivity extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.content);
         textView.setText(masterpiece.getDescription() + masterpiece.getYear() + masterpiece.getAuthor());
+
+        ImageButton buttonBack = (ImageButton) findViewById(R.id.back);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

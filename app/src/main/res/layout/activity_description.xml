@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pyramitec.museumcatalog.Views.DescriptionActivity">
+    tools:context="com.pyramitec.museumcatalog.Views.DescriptionActivity"
+    android:theme="@android:style/Theme.NoTitleBar">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -23,6 +24,15 @@
             app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
             app:title="@string/app_name">
 
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/primary"
+                app:srcCompat="@android:drawable/ic_menu_revert"
+                />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -32,8 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
+        android:layout_marginTop="@dimen/text_margin"
         android:text="sklajdksjdlkas l"
         android:textColor="@color/material_drawer_dark_icons"
-        android:textStyle="bold" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appbar" />
 
 </android.support.constraint.ConstraintLayout>
