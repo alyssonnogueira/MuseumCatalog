@@ -17,8 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.pyramitec.museumcatalog.Controllers.MuseumController;
 import com.pyramitec.museumcatalog.Models.Masterpiece;
@@ -89,16 +92,54 @@ public class GalleryActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton videoButton = (ImageButton) findViewById(R.id.videoButton);
+        final ImageButton soundButton = (ImageButton) findViewById(R.id.audioButton);
+
+        videoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final VideoView videoPlayer = (VideoView) findViewById(R.id.videoPlayer);
+                //soundButton.setVisibility(View.GONE);
+                //videoPlayer.bringToFront();
+                if(videoPlayer.getVisibility()==View.VISIBLE)
+                {
+                    videoPlayer.setVisibility(View.GONE);
+                }
+                else if(videoPlayer.getVisibility()==View.GONE)
+                {
+                    videoPlayer.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        soundButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                final VideoView videoPlayer = (VideoView) findViewById(R.id.videoPlayer);
+                //soundButton.setVisibility(View.GONE);
+                //videoPlayer.bringToFront();
+                if(videoPlayer.getVisibility()==View.VISIBLE)
+                {
+                    videoPlayer.setVisibility(View.GONE);
+                }
+                else if(videoPlayer.getVisibility()==View.GONE)
+                {
+                    videoPlayer.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
     }
 
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_gallery, menu);
         return true;
     }
-
+*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -146,10 +187,11 @@ public class GalleryActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            ImageView imageShow = (ImageView) rootView.findViewById(R.id.section_label);
             //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER))); //
-            textView.setText(mGallery.get(getArguments().getInt(ARG_SECTION_NUMBER)).getDescription());
+            //textView.setText(mGallery.get(getArguments().getInt(ARG_SECTION_NUMBER)).getDescription());
+            //imageShow.setImageResource(R.mipmap.ic_launcher);
             return rootView;
         }
     }

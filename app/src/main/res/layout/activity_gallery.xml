@@ -25,6 +25,25 @@
             app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
             app:title="@string/app_name">
 
+            <ImageButton
+                android:id="@+id/audioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/primary"
+                android:src="@drawable/ic_audiotrack_white_24dp"
+                />
+
+            <ImageButton
+                android:id="@+id/videoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/primary"
+                android:src="@drawable/ic_videocam_white_24dp"
+
+                />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -35,6 +54,8 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:layout_editor_absoluteX="-21dp">
+
+
 
     </android.support.v4.view.ViewPager>
 
