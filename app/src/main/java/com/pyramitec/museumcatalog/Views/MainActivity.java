@@ -7,10 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pyramitec.museumcatalog.Controllers.MuseumController;
@@ -36,10 +38,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(mMuseum.getName());
         setSupportActionBar(toolbar);
 
+        TextView descriptionMuseum = (TextView) findViewById(R.id.description_text);
+        descriptionMuseum.setText(mMuseum.getText());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("Teste", String.valueOf(mMuseum.getGallery().size()));
                 Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
                 intent.putExtra(EXTRA_NAME, mMuseum.getIdMuseum());
                 startActivity(intent);
@@ -51,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context context = getApplicationContext();
-                CharSequence text = "Museu do doce!";
+                CharSequence text = mMuseum.getInfo();
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);

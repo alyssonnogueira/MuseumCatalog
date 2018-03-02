@@ -18,12 +18,26 @@ public class Masterpiece extends RealmObject {
     private String imagePath;
     private String videoPath;
     private String audioPath;
-    private Date year;
+    private String year;
+    private String status;
+    private String conservation_state;
+
 
     public Masterpiece() {
     }
 
-    public Masterpiece(String name, String description, String author, String imagePath, String videoPath, String audioPath, Date year) {
+    public Masterpiece(String name, String description, String author, String imagePath, String videoPath, String audioPath, String year) {
+        this.name = name;
+        this.description = description;
+        this.author = author;
+        this.imagePath = imagePath;
+        this.videoPath = videoPath;
+        this.audioPath = audioPath;
+        this.year = year;
+    }
+
+    public Masterpiece(int id, String name, String description, String imagePath, String videoPath, String audioPath, String year,
+                       String status, String conservation_state, String biography) {
         this.name = name;
         this.description = description;
         this.author = author;
@@ -89,11 +103,17 @@ public class Masterpiece extends RealmObject {
         this.audioPath = audioPath;
     }
 
-    public Date getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Date year) {
+    public void setYear(String year) {
         this.year = year;
     }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getConservation_state() {return this.conservation_state;}
 }

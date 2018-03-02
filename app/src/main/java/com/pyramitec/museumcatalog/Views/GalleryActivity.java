@@ -58,6 +58,8 @@ public class GalleryActivity extends AppCompatActivity {
         MuseumController museumController = new MuseumController();
         mMuseum = museumController.getMuseumById(museumId);
 
+        Toast.makeText(getApplicationContext(), "id" + String.valueOf(museumId), Toast.LENGTH_LONG).show();
+
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -210,7 +212,7 @@ public class GalleryActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position, mMuseum.getGallery()); //TODO: Deve ser position + 1, está com bug!
+            return PlaceholderFragment.newInstance(position + 1, mMuseum.getGallery()); //TODO: Deve ser position + 1, está com bug!
         }
 
         @Override

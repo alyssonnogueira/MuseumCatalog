@@ -13,6 +13,7 @@ import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -28,9 +29,10 @@ import java.util.List;
 /**
  * A fragment representing a list of Items.
  * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * Activities containing this fragment MUST implement the {@link }
  * interface.
  */
+//OnListFragmentInteractionListener
 public class MuseumFragment extends Fragment implements RecyclerViewOnClickListenerHack{
     private final String LOG_TAG = MuseumFragment.class.getSimpleName();
     List<Museum> mMuseums;
@@ -43,6 +45,8 @@ public class MuseumFragment extends Fragment implements RecyclerViewOnClickListe
                              Bundle savedInstanceState) {
         MuseumController museumController = new MuseumController();
         mMuseums = museumController.getMuseums();
+
+        Log.d("tam", String.valueOf(mMuseums.size()));
 
         for (int i = 0; i < mMuseums.size(); i++){
             Log.d(LOG_TAG, "SAHSUIADHKSAHDKASHDKASJHSDAK");
